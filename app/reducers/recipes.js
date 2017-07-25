@@ -5,7 +5,7 @@ export const searchedRecipes = createReducer({}, {
 	[types.SET_SEARCHED_RECIPES](state, action) {
 		let newState = {};
 		action.recipes.forEach( (recipe) => {
-			newState[recipe.href] = recipe
+			newState[recipe.href + recipe.title] = recipe
 		});
 		return newState;
 	},

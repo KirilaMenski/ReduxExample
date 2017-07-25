@@ -5,16 +5,13 @@ export function fetchRecipes(ingredients) {
 	return(dispatch, getSate) => {
 		const params = [
 			`i=${encodeURIComponent(ingredients)}`,
-			'fillIngredients=false',
-			'limitLicense=false',
-			'number=20',
-			'ranking=1',
+			'p=1',
 		].join('&');
-		return Api.get(`/api/?${params}`).then((resp) => {
+		return Api.get(`/api/?${params}`).then(resp => {
 			dispatch(setSearchedRecipes({ recipes: resp }));
 		}).catch( (ex) => {
 			console.log(ex);
-		})
+		});
 	}
 }
 
